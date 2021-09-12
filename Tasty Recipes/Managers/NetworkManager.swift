@@ -24,7 +24,7 @@ class NetworkManager {
 	private let host = "tasty.p.rapidapi.com"
 	private let baseURL = "https://tasty.p.rapidapi.com/recipes/"
 	
-//	#warning("Paste your API KEY to the TRDatabase.plist file. You can obtain your api key at https://rapidapi.com/apidojo/api/tasty/. If you already completed this step, you can delete this line in the source code.")
+	#warning("Paste your API KEY to the TRDatabase.plist file. You can obtain your api key at https://rapidapi.com/apidojo/api/tasty/. If you already completed this step, you can delete this line in the source code.")
 	
 	private var api_key: String {
 	  get {
