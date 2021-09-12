@@ -137,12 +137,6 @@ class NetworkManager {
 	}
 	
 	func getRecipesList(for term: String, page: Int, completion: @escaping(Result<Recipes, TRError>) -> Void) {
-		let cacheKey = NSString(string: String(term))
-		
-		if let recipes = recipesListCache.object(forKey: cacheKey) {
-			completion(.success(recipes.value))
-			return
-		}
 		
 		let headers = [
 			"x-rapidapi-host": host,
@@ -156,6 +150,13 @@ class NetworkManager {
 		let convertedTerm = term.lowercased().replacingOccurrences(of: " ", with: "%20")
 		
 		let endpoint = baseURL + "list?from=\(start)&size=\(resultsPerPage)&q=" + convertedTerm
+		
+		let cacheKey = NSString(string: String(endpoint))
+
+		if let recipes = recipesListCache.object(forKey: cacheKey) {
+			completion(.success(recipes.value))
+			return
+		}
 		
 		guard let url = URL(string: endpoint) else {
 			completion(.failure(.invalidEntry))
