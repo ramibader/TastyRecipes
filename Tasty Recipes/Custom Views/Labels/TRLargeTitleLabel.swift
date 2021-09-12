@@ -27,7 +27,7 @@ class TRLargeTitleLabel: UILabel {
 		textColor = .white
 		textAlignment = .natural
 		
-		font = UIFont.systemFont(ofSize: 46, weight: .black)
+		font = UIFont.systemFont(ofSize: 36, weight: .black)
 		
 		layer.shadowColor = UIColor.black.cgColor
 		layer.shadowRadius = 3
